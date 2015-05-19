@@ -16,9 +16,16 @@ class ViewController: UIViewController {
     
     @IBAction func findWeatjer(sender: AnyObject) {
         
-        var city:String = userCity.text.stringByReplacingOccurrencesOfString(" ", withString: "")
+        var city:String = userCity.text.stringByReplacingOccurrencesOfString(" ", withString: "-")
         
-        var url = NSURL(string: "http://www.weather-forecast.com/locations/" + city + "/forecasts/latest")
+        var city2 = NSString(string: city)
+        
+        city2.substringFromIndex(city2.length - 2)
+        
+        
+        println(city2);
+        
+        var url = NSURL(string: "http://www.weather-forecast.com/locations/" + city2 + "/forecasts/latest")
         
         //good habit to check if url exists before force unwrapping it
         if url != nil {
